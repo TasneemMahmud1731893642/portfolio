@@ -100,7 +100,7 @@ function App() {
         <a href="https://github.com/TasneemMahmud1731893642" target="_blank" rel="noopener noreferrer" class="github-link">
             <button class="github-button">
                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" class="github-icon"/>
-               GitHub Repository
+               GitHub Profile
             </button>
         </a>
         
