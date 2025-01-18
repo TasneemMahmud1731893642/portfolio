@@ -79,7 +79,7 @@ function App() {
       <div className="more">
         <h1>More Projects</h1>
         <p>More projects such a online compiler, food deliver app, Disease Predictor, etc are in my GitHub repository</p>
-        <a href="https://github.com/TasneemMahmud1731893642/Projects.git" target="_blank" class="github-link">
+        <a href="https://github.com/TasneemMahmud1731893642/Projects.git" target="_blank" rel="noopener noreferrer" class="github-link">
             <button class="github-button">
                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" class="github-icon"/>
                GitHub Repository
