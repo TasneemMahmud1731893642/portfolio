@@ -1,20 +1,32 @@
+import { useState, useEffect } from "react";
+import MatrixIntro from "./matrix";
+import me from "./img/me.png";
+import bharatiyaImage from "./img/bharatiya.png";
+import jt from "./img/jt.png";
+import notes from "./img/notes.png";
+import learning from "./img/learning.png";
+import movie from "./img/movie.png";
+import linkedin from "./img/linkedin.png";
 //import logo from './logo.svg';
 import './App.css';
-//import { FiSmartphone } from 'react-icons/fi';
-import bharatiyaImage from './img/bharatiya.png';
-import me from './img/me.png';
-import jt from './img/jt.png';
-//import monitor from './img/monitor.png';
-import notes from './img/notes.png';
-import learning from './img/learning.png';
-import movie from './img/movie.png';
-import linkedin from './img/linkedin.png';
-//import { FiMonitor } from 'react-icons/fi'; 
 
 function App() {
+  const [showPortfolio, setShowPortfolio] = useState(false);
+  const [fadeIn, setFadeIn] = useState(false);
+
+  useEffect(() => {
+    if (showPortfolio) {
+      setTimeout(() => setFadeIn(true), 100); // Delay to ensure smooth transition
+    }
+  }, [showPortfolio]);
+
   return (
     <div className="App">
-      <header className="App-header">
+      {!showPortfolio ? (
+        <MatrixIntro onComplete={() => setShowPortfolio(true)} />
+      ) : (
+        <div className={`portfolio ${fadeIn ? "fade-in" : ""}`}>
+          <header className="App-header">
         <div className="texts1">
           <h1>Tasneem Mahmud</h1>
           <i>"The best way to predict the future is to create it."</i>
@@ -127,8 +139,9 @@ function App() {
         </a>
         
       </footer>
+        </div>
+      )}
     </div>
-    
   );
 }
 
