@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d54eb914.css",
+    "main.js": "/static/js/main.73c156e6.js",
+    "static/media/movie.png": "/static/media/movie.65895a65d6fd07b804e8.png",
+    "static/media/bharatiya.png": "/static/media/bharatiya.a9d11b8eef6bc1df765f.png",
+    "static/media/learning.png": "/static/media/learning.e8d074871933dcd3dd48.png",
+    "static/media/me.png": "/static/media/me.86a1b04b82d057779dea.png",
+    "static/media/jt.png": "/static/media/jt.34081d63b7d93d5d738f.png",
+    "static/media/notes.png": "/static/media/notes.112c7ceefa92ff90cb72.png",
+    "index.html": "/index.html",
+    "main.d54eb914.css.map": "/static/css/main.d54eb914.css.map",
+    "main.73c156e6.js.map": "/static/js/main.73c156e6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d54eb914.css",
+    "static/js/main.73c156e6.js"
+  ]
+}
