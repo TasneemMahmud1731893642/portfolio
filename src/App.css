@@ -1,6 +1,10 @@
 .App {
   text-align: center;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
+
 
 .App-header {
   background-color: orange; /* Set the header background to orange */
@@ -27,7 +31,20 @@
   line-height: 1.5; /* Add line height for better readability */
   margin-left: 200px;
 }
+.im{
+  
 
+  width: 50vh;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box{
+  height: 100px;
+  width: 100px;
+  background-color: blue;
+}
 .texts {
   max-width: 60%; /* Limit the width of the text section */
   text-align: left; /* Align text to the left */
@@ -45,16 +62,35 @@
   line-height: 1.5; /* Add line height for better readability */
 }
 
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 
+                0 0 20px rgba(0, 255, 255, 0.6), 
+                0 0 30px rgba(0, 255, 255, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 
+                0 0 30px rgba(0, 255, 255, 1), 
+                0 0 40px rgba(0, 255, 255, 1);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 
+                0 0 20px rgba(0, 255, 255, 0.6), 
+                0 0 30px rgba(0, 255, 255, 0.7);
+  }
+}
+
 .App-header img {
   margin-top: 30PX;
   max-width: 30%; /* Limit the image width */
   height: auto; /* Maintain aspect ratio */
-  border-radius: 50%; /* Make the image round to blend nicely */
+  border-radius: 50%; /* Make the image round */
   margin-right: 100px;
   margin-bottom: 50px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Soft shadow to create blending effect */
-  border: 3px solid rgba(255, 255, 255, 0.5); /* Light border to add subtle blending effect */
+  border: 3px solid rgba(255, 255, 255, 0.5); /* Light border */
+  animation: glowing 1.5s infinite alternate; /* Apply the glowing animation */
 }
+
 
 
 .bharatiya {
@@ -95,7 +131,7 @@
 .bharatiya img{
   height: 400px;
   width: 250px;
-  margin-left: 100px;
+  
 
   
 }
@@ -218,8 +254,9 @@
 .about{
   margin-top: 50px;
   margin-bottom: 100px;
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: 50px;
+  
+  
   
 }
 .texts2 p {
@@ -247,6 +284,15 @@
     flex-direction: column;
     align-items: center;
     padding: 10px; /* Reduced padding for mobile screens */
+  }
+  .im{
+    
+  
+  
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .texts1 {
