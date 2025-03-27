@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useState } from "react";
 import MatrixIntro from "./matrix";
 import me from "./img/me.png";
 import bharatiyaImage from "./img/bharatiya.png";
@@ -7,10 +7,41 @@ import notes from "./img/notes.png";
 import learning from "./img/learning.png";
 import movie from "./img/movie.png";
 import linkedin from "./img/linkedin.png";
+import centerIcon from "./img/center-icon.png";
 import "./App.css";
+
+// Technology icons (replace with actual paths after downloading)
+import cIcon from "./img/c.png";
+import cppIcon from "./img/cpp.png";
+import javaIcon from "./img/java.png";
+import pythonIcon from "./img/python.png";
+import htmlIcon from "./img/html.png";
+import cssIcon from "./img/css.png";
+import jsIcon from "./img/js.png";
+import reactIcon from "./img/react.png";
+import nodeIcon from "./img/node.png";
+import phpIcon from "./img/php.png";
+import mongoIcon from "./img/mongo.png";
+import postgresIcon from "./img/postgres.png";
 
 function App() {
   const [showPortfolio, setShowPortfolio] = useState(false);
+
+  // Array of technologies with names and icons
+  const technologies = [
+    { name: "C", icon: cIcon },
+    { name: "C++", icon: cppIcon },
+    { name: "Java", icon: javaIcon },
+    { name: "Python", icon: pythonIcon },
+    { name: "-CDHTML", icon: htmlIcon },
+    { name: "CSS", icon: cssIcon },
+    { name: "JavaScript", icon: jsIcon },
+    { name: "ReactJS", icon: reactIcon },
+    { name: "NodeJS", icon: nodeIcon },
+    { name: "PHP", icon: phpIcon },
+    { name: "MongoDB", icon: mongoIcon },
+    { name: "PostgreSQL", icon: postgresIcon },
+  ];
 
   return (
     <div className="App">
@@ -24,6 +55,28 @@ function App() {
             </div>
             <img src={me} alt="me" />
           </header>
+
+          {/* Tech Stack Animation Section */}
+          <div className="tech-stack section">
+            <h1>My Tech Stack</h1>
+            <div className="tech-orbit-container">
+              {/* Center Icon - Stationary */}
+              <img src={centerIcon} alt="Center Icon" className="center-icon" />
+              {/* Orbiting Tech Items - Spinning */}
+              <div className="tech-orbit">
+                {technologies.map((tech, index) => (
+                  <div
+                    key={tech.name}
+                    className="tech-item"
+                    style={{ animationDelay: `${index * 0.3}s` }}
+                  >
+                    <img src={tech.icon} alt={tech.name} className="tech-icon" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
           <div className="about section">
             <div className="texts2">
               <h1>About me</h1>
@@ -32,6 +85,7 @@ function App() {
               </p>
             </div>
           </div>
+
           <div className="bharatiya section">
             <div className="texts">
               <h1>Bharatiya</h1>
@@ -41,6 +95,7 @@ function App() {
             </div>
             <img className="monitor1" src={bharatiyaImage} alt="Bharatiya" />
           </div>
+
           <div className="notes section">
             <div className="texts">
               <h1>Ecommerce Website</h1>
@@ -50,6 +105,7 @@ function App() {
             </div>
             <img className="monitor1" src={jt} alt="Ecommerce" />
           </div>
+
           <div className="notes section">
             <div className="texts">
               <h1>Notes App</h1>
@@ -59,6 +115,7 @@ function App() {
             </div>
             <img className="monitor1" src={notes} alt="Notes" />
           </div>
+
           <div className="learn section">
             <div className="texts">
               <h1>Learning Platform</h1>
@@ -68,6 +125,7 @@ function App() {
             </div>
             <img className="monitor2" src={learning} alt="Learning" />
           </div>
+
           <div className="movie section">
             <div className="texts">
               <h1>Movie Theatre</h1>
@@ -77,6 +135,7 @@ function App() {
             </div>
             <img className="monitor3" src={movie} alt="Movie" />
           </div>
+
           <div className="more section">
             <h1>More Projects</h1>
             <p>
@@ -98,6 +157,7 @@ function App() {
               </button>
             </a>
           </div>
+
           <footer className="footer section">
             <a
               href="https://www.linkedin.com/in/tasneem-mahmud-74bb35158/"

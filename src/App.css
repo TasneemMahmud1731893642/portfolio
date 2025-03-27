@@ -28,41 +28,45 @@
   animation: fadeIn 0.5s ease-in forwards; /* Reduced from 1s to 0.5s */
 }
 
-/* Sequential delays for each section (reduced from 0.2s to 0.1s intervals) */
+/* Sequential delays for each section */
 .App-header.section {
   animation-delay: 0s;
 }
 
-.about.section {
+.tech-stack.section {
   animation-delay: 0.1s;
 }
 
-.bharatiya.section {
+.about.section {
   animation-delay: 0.2s;
 }
 
-.notes.section:nth-child(4) { /* First .notes section (Ecommerce) */
+.bharatiya.section {
   animation-delay: 0.3s;
 }
 
-.notes.section:nth-child(5) { /* Second .notes section (Notes App) */
+.notes.section:nth-child(5) { /* Ecommerce */
   animation-delay: 0.4s;
 }
 
-.learn.section {
+.notes.section:nth-child(6) { /* Notes App */
   animation-delay: 0.5s;
 }
 
-.movie.section {
+.learn.section {
   animation-delay: 0.6s;
 }
 
-.more.section {
+.movie.section {
   animation-delay: 0.7s;
 }
 
-.footer.section {
+.more.section {
   animation-delay: 0.8s;
+}
+
+.footer.section {
+  animation-delay: 0.9s;
 }
 
 /* Fade-in Animation */
@@ -123,7 +127,7 @@
 
 @keyframes glowing {
   0% {
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.7);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 255, 255, 0.7);
   }
   50% {
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 1), 0 0 40px rgba(0, 255, 255, 1);
@@ -133,11 +137,31 @@
   }
 }
 
-.bharatiya {
+.bharatiya,
+.notes,
+.learn,
+.movie {
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
   gap: 20px;
-  padding: 20px;
+  padding: 30px;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 6px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  margin: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bharatiya:hover,
+.notes:hover,
+.learn:hover,
+.movie:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 8px 8px rgba(0, 0, 0, 0.15);
 }
 
 .texts {
@@ -169,16 +193,6 @@
 .bharatiya img {
   height: 400px;
   width: 250px;
-}
-
-.notes,
-.learn,
-.movie {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 20px;
-  position: relative;
 }
 
 .monitor1 {
@@ -278,6 +292,11 @@
   margin-left: 50px;
 }
 
+.texts2 h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
 .texts2 p {
   text-align: left;
   font-size: 1.2rem;
@@ -285,10 +304,99 @@
   color: #555;
 }
 
-.texts2 h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+/* Tech Stack Section */
+.tech-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  margin: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
+
+.tech-stack h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Container for both center icon and orbiting items */
+.tech-orbit-container {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Center Icon Styling - Stationary */
+.center-icon {
+  position: absolute;
+  width: 250px;
+  height: 200px;
+  z-index: 1; /* Ensure it’s above the spinning icons */
+}
+
+/* Orbiting Animation Container - Spinning */
+.tech-orbit {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: spin 12s infinite linear; /* Spinning animation applied only to tech items */
+}
+
+/* Spinning Animation Keyframes */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Individual Tech Items */
+.tech-item {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0; /* Ensure tech items are below the center icon */
+}
+
+/* Tech Icon Styling */
+.tech-icon {
+  width: 60px;
+  height: 60px;
+  transition: transform 0.3s ease;
+}
+
+.tech-item:hover .tech-icon {
+  transform: scale(1.2);
+}
+
+/* Assign unique angles to each tech item */
+.tech-item:nth-child(1) { transform: rotate(0deg) translateX(240px); } /* C */
+.tech-item:nth-child(2) { transform: rotate(30deg) translateX(240px); } /* C++ */
+.tech-item:nth-child(3) { transform: rotate(60deg) translateX(240px); } /* Java */
+.tech-item:nth-child(4) { transform: rotate(90deg) translateX(240px); } /* Python */
+.tech-item:nth-child(5) { transform: rotate(120deg) translateX(240px); } /* HTML */
+.tech-item:nth-child(6) { transform: rotate(150deg) translateX(240px); } /* CSS */
+.tech-item:nth-child(7) { transform: rotate(180deg) translateX(240px); } /* JavaScript */
+.tech-item:nth-child(8) { transform: rotate(210deg) translateX(240px); } /* ReactJS */
+.tech-item:nth-child(9) { transform: rotate(240deg) translateX(240px); } /* NodeJS */
+.tech-item:nth-child(10) { transform: rotate(270deg) translateX(240px); } /* PHP */
+.tech-item:nth-child(11) { transform: rotate(300deg) translateX(240px); } /* MongoDB */
+.tech-item:nth-child(12) { transform: rotate(330deg) translateX(240px); } /* PostgreSQL */
 
 /* Media Queries */
 @media (max-width: 480px) {
@@ -328,9 +436,20 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.08);
+    transform: translateY(-3px);
+  }
+  .notes:hover,
+  .learn:hover,
+  .movie:hover,
+  .bharatiya:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 5px 5px rgba(0, 0, 0, 0.1);
   }
   .about {
-    margin-right: 80px;
+    margin: 20px 15px;
   }
   .bharatiya img,
   .notes img,
@@ -338,6 +457,11 @@
   .movie img {
     width: 90%;
     height: auto;
+  }
+  .monitor1,
+  .monitor2,
+  .monitor3 {
+    margin-top: 20px;
   }
   .icon {
     margin-right: 120px;
@@ -348,6 +472,15 @@
     margin-left: 0;
     margin-right: 0;
     padding: 0 15px;
+  }
+  .texts2 h1,
+  .texts h1 {
+    font-size: 1.8rem;
+  }
+  .texts2 p,
+  .texts p {
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
   .more {
     margin-bottom: 30px;
@@ -369,6 +502,49 @@
     margin-right: 0;
     margin-bottom: 10px;
   }
+  .tech-stack {
+    padding: 20px 10px; /* Reduced padding to fit within viewport */
+    margin: 10px; /* Reduced margin to fit within viewport */
+  }
+  .tech-orbit-container {
+    width: 300px; /* Reduced from 350px to fit better in viewport */
+    height: 300px;
+    
+    
+  
+  }
+
+  
+
+  .tech-orbit::after
+  .tech-item {
+    width: 40px;
+    height: 40px;
+  }
+  .tech-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .center-icon {
+    width: 150px;
+    height: 120px;
+  }
+  .tech-item:nth-child(n+1) {
+    transform: rotate(calc(30deg * (n - 1))) translateX(100px); /* Kept at 100px */
+  }
+  /* Increase translateX to space out the icons more */
+  .tech-item:nth-child(1) { transform: rotate(0deg) translateX(140px); } /* C */
+  .tech-item:nth-child(2) { transform: rotate(30deg) translateX(140px); } /* C++ */
+  .tech-item:nth-child(3) { transform: rotate(60deg) translateX(140px); } /* Java */
+  .tech-item:nth-child(4) { transform: rotate(90deg) translateX(140px); } /* Python */
+  .tech-item:nth-child(5) { transform: rotate(120deg) translateX(140px); } /* HTML */
+  .tech-item:nth-child(6) { transform: rotate(150deg) translateX(140px); } /* CSS */
+  .tech-item:nth-child(7) { transform: rotate(180deg) translateX(140px); } /* JavaScript */
+  .tech-item:nth-child(8) { transform: rotate(210deg) translateX(140px); } /* ReactJS */
+  .tech-item:nth-child(9) { transform: rotate(240deg) translateX(140px); } /* NodeJS */
+  .tech-item:nth-child(10) { transform: rotate(270deg) translateX(140px); } /* PHP */
+  .tech-item:nth-child(11) { transform: rotate(300deg) translateX(140px); } /* MongoDB */
+  .tech-item:nth-child(12) { transform: rotate(330deg) translateX(140px); } /* PostgreSQL */
 }
 
 @media (max-width: 600px) {
@@ -393,6 +569,13 @@
   }
   .texts {
     margin-left: 0;
+  }
+  .texts h1 {
+    font-size: 1.8rem;
+  }
+  .texts p {
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
   .more {
     height: auto;
@@ -434,6 +617,13 @@
   .texts {
     max-width: 80%;
   }
+  .texts h1 {
+    font-size: 2rem;
+  }
+  .texts p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
   .github-button,
   .linkedin-button {
     font-size: 14px;
@@ -442,6 +632,17 @@
   .footer {
     flex-direction: column;
     text-align: center;
+  }
+  .tech-orbit-container {
+    width: 350px;
+    height: 350px;
+  }
+  .center-icon {
+    width: 180px;
+    height: 150px;
+  }
+  .tech-item:nth-child(n+1) {
+    transform: rotate(calc(30deg * (n - 1))) translateX(170px);
   }
 }
 
