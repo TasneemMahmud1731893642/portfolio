@@ -529,9 +529,7 @@
     width: 150px;
     height: 120px;
   }
-  .tech-item:nth-child(n+1) {
-    transform: rotate(calc(30deg * (n - 1))) translateX(100px); /* Kept at 100px */
-  }
+  
   /* Increase translateX to space out the icons more */
   .tech-item:nth-child(1) { transform: rotate(0deg) translateX(140px); } /* C */
   .tech-item:nth-child(2) { transform: rotate(30deg) translateX(140px); } /* C++ */
