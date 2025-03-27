@@ -1,6 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const MatrixIntro = ({ onComplete }) => {
+  const containerRef = useRef(null);
+
   useEffect(() => {
     const canvas = document.getElementById("matrixCanvas");
     const ctx = canvas.getContext("2d");
@@ -33,18 +35,53 @@ const MatrixIntro = ({ onComplete }) => {
 
     const interval = setInterval(drawMatrix, 30);
 
-    setTimeout(() => {
+    const fadeOutTimeout = setTimeout(() => {
+      if (containerRef.current) {
+        containerRef.current.classList.add("fade-out");
+      }
+    }, 3000);
+
+    const completeTimeout = setTimeout(() => {
       clearInterval(interval);
       onComplete();
     }, 4000);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      clearTimeout(fadeOutTimeout);
+      clearTimeout(completeTimeout);
+    };
   }, [onComplete]);
 
   return (
-    <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100vh", background: "black", zIndex: 999 }}>
+    <div
+      ref={containerRef}
+      className="matrix-container"
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100vh",
+        background: "black",
+        zIndex: 999,
+      }}
+    >
       <canvas id="matrixCanvas" style={{ display: "block" }}></canvas>
-      <div style={{ position: "absolute", top: "20%", left: "50%", transform: "translate(-50%, -50%)", fontSize: "24px", color: "#0F0", fontFamily: "monospace", background: "rgba(0, 0, 0, 0.7)", padding: "10px 20px", borderRadius: "5px" }}>
+      <div
+        style={{
+          position: "absolute",
+          top: "20%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          fontSize: "24px",
+          color: "#0F0",
+          fontFamily: "monospace",
+          background: "rgba(0, 0, 0, 0.7)",
+          padding: "10px 20px",
+          borderRadius: "5px",
+        }}
+      >
         Welcome to My Portfolio
       </div>
     </div>

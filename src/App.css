@@ -3,225 +3,210 @@
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
 }
 
+/* Matrix Container */
+.matrix-container {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+.matrix-container.fade-out {
+  opacity: 0;
+}
+
+/* Portfolio Container */
+.portfolio {
+  opacity: 1; /* Portfolio is fully visible; animations are handled by sections */
+}
+
+/* Section Animation */
+.section {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards; /* Reduced from 1s to 0.5s */
+}
+
+/* Sequential delays for each section (reduced from 0.2s to 0.1s intervals) */
+.App-header.section {
+  animation-delay: 0s;
+}
+
+.about.section {
+  animation-delay: 0.1s;
+}
+
+.bharatiya.section {
+  animation-delay: 0.2s;
+}
+
+.notes.section:nth-child(4) { /* First .notes section (Ecommerce) */
+  animation-delay: 0.3s;
+}
+
+.notes.section:nth-child(5) { /* Second .notes section (Notes App) */
+  animation-delay: 0.4s;
+}
+
+.learn.section {
+  animation-delay: 0.5s;
+}
+
+.movie.section {
+  animation-delay: 0.6s;
+}
+
+.more.section {
+  animation-delay: 0.7s;
+}
+
+.footer.section {
+  animation-delay: 0.8s;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
 .App-header {
-  background-color: orange; /* Set the header background to orange */
-  display: flex; /* Use flexbox for layout */
-  align-items: center; /* Align items vertically */
-  justify-content: space-between; /* Add spacing between text and image */
-  
-  padding: 20px; /* Add padding for spacing */
-  color: white; /* Set text color to white for contrast */
+  background-color: orange;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  color: white;
 }
-.texts1{
-  max-width: 60%; /* Limit the width of the text section */
-  text-align: left; /* Align text to the left */
-   margin-left: 100px;
-   margin-bottom: 200px;
+
+.texts1 {
+  max-width: 60%;
+  text-align: left;
+  margin-left: 100px;
+  margin-bottom: 200px;
 }
+
 .texts1 h1 {
-  font-size: 80px; /* Adjust the font size of the heading */
+  font-size: 80px;
   margin-bottom: 10px;
 }
 
 .texts1 i {
-  font-size: 20px; /* Adjust the font size of the paragraph */
-  line-height: 1.5; /* Add line height for better readability */
+  font-size: 20px;
+  line-height: 1.5;
   margin-left: 200px;
 }
-.im{
-  
 
+.im {
   width: 50vh;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 2s ease-in forwards;
-}
 
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-  }
-  to {
-      opacity: 1;
-  }
-}
-@keyframes matrixRain {
-  from {
-      transform: translateY(-100%);
-      opacity: 0;
-  }
-  to {
-      transform: translateY(100vh);
-      opacity: 1;
-  }
-}
-.matrix-letter {
-  animation: matrixRain 2s linear infinite;
-}
-.page-transition {
-  transition: opacity 1.5s ease-in-out;
-}
-.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.box{
-  height: 100px;
-  width: 100px;
-  background-color: blue;
-}
-.texts {
-  max-width: 60%; /* Limit the width of the text section */
-  text-align: left; /* Align text to the left */
-  margin-right: 20px; /* Add some space between the text and image */
-}
-
-
-.texts h1 {
-  font-size: 2.5rem; /* Adjust the font size of the heading */
-  margin-bottom: 10px;
-}
-
-.texts p {
-  font-size: 1rem; /* Adjust the font size of the paragraph */
-  line-height: 1.5; /* Add line height for better readability */
+.App-header img {
+  margin-top: 30px;
+  max-width: 30%;
+  height: auto;
+  border-radius: 50%;
+  margin-right: 100px;
+  margin-bottom: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  animation: glowing 1.5s infinite alternate;
 }
 
 @keyframes glowing {
   0% {
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 
-                0 0 20px rgba(0, 255, 255, 0.6), 
-                0 0 30px rgba(0, 255, 255, 0.7);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.7);
   }
   50% {
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 
-                0 0 30px rgba(0, 255, 255, 1), 
-                0 0 40px rgba(0, 255, 255, 1);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 1), 0 0 40px rgba(0, 255, 255, 1);
   }
   100% {
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 
-                0 0 20px rgba(0, 255, 255, 0.6), 
-                0 0 30px rgba(0, 255, 255, 0.7);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.7);
   }
 }
 
-.App-header img {
-  margin-top: 30PX;
-  max-width: 30%; /* Limit the image width */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 50%; /* Make the image round */
-  margin-right: 100px;
-  margin-bottom: 50px;
-  border: 3px solid rgba(255, 255, 255, 0.5); /* Light border */
-  animation: glowing 1.5s infinite alternate; /* Apply the glowing animation */
-}
-
-
-
 .bharatiya {
-  display: flex; /* Use flexbox to arrange the text and icon side by side */
-  align-items: center; /* Align items vertically */
-  gap: 20px; /* Add space between the text and icon */
+  display: flex;
+  align-items: center;
+  gap: 20px;
   padding: 20px;
 }
 
 .texts {
-  flex: 1; /* Allow the text to take up remaining space */
+  flex: 1;
   margin-left: 50px;
 }
 
 .texts h1 {
-  font-size: 2.5rem; /* Adjust the heading size */
+  font-size: 2.5rem;
   margin-bottom: 10px;
 }
 
 .texts p {
-  text-align: left; /* Align text to the left */
-  font-size: 1.2rem; /* Adjust font size if needed */
-  line-height: 1.8; /* Improve readability */
-  color: #555; /* Soft dark color for text */
+  text-align: left;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #555;
 }
 
 .icon {
-  
-  height: 400px; /* Desired size */
+  height: 400px;
   width: 220px;
-  
   border: 20px solid black;
   border-radius: 20px;
   position: relative;
   margin-left: 100px;
 }
 
-.bharatiya img{
+.bharatiya img {
   height: 400px;
   width: 250px;
-  
-
-  
 }
 
-
-.notes {
-  display: flex; /* Use flexbox to arrange the text and icon side by side */
-  align-items: center; /* Align items vertically */
-  gap: 20px; /* Add space between the text and icon */
+.notes,
+.learn,
+.movie {
+  display: flex;
+  align-items: center;
+  gap: 20px;
   padding: 20px;
   position: relative;
 }
 
-
-.learn{
-  display: flex; /* Use flexbox to arrange the text and icon side by side */
-  align-items: center; /* Align items vertically */
-  gap: 20px; /* Add space between the text and icon */
-  padding: 20px;
-  position: relative;
-}
-
-.movie{
-  display: flex; /* Use flexbox to arrange the text and icon side by side */
-  align-items: center; /* Align items vertically */
-  gap: 20px; /* Add space between the text and icon */
-  padding: 20px;
-  position: relative;
-}
-
-.more {
-  display: flex; /* Use flexbox for layout */
-  flex-direction: column; /* Stack items vertically */
-  align-items: center; /* Center align horizontally */
-  justify-content: center; /* Center align vertically (if needed) */
-  text-align: center; /* Center the text */
-  margin-bottom: 30px;
-  height: 300px;
-}
-
-.monitor1{
+.monitor1 {
   margin-top: 100px;
   height: 420px;
   width: 545px;
 }
-.monitor2{
+
+.monitor2 {
   margin-top: 100px;
   height: 420px;
   width: 585px;
-
 }
-.monitor3{
+
+.monitor3 {
   margin-top: 100px;
   height: 420px;
   width: 565px;
+}
 
+.more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 30px;
+  height: 300px;
 }
 
 .github-button {
@@ -246,19 +231,21 @@
   width: 20px;
   height: 20px;
 }
+
 .github-link {
-  text-decoration: none; /* Remove the underline */
+  text-decoration: none;
 }
 
-.footer{
-  background-color: orange; /* Set the header background to orange */
+.footer {
+  background-color: orange;
   height: 200px;
-  display: flex; /* Use flexbox for layout */
-  align-items: center; /* Align items vertically */
-  justify-content: center; /* Add spacing between text and image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .linkedin-button {
-  background-color: #0077B5; /* LinkedIn's brand color */
+  background-color: #0077b5;
   color: white;
   font-size: 16px;
   padding: 10px 20px;
@@ -273,7 +260,7 @@
 }
 
 .linkedin-button:hover {
-  background-color: #006799; /* Darker LinkedIn color on hover */
+  background-color: #006799;
 }
 
 .linkedin-icon {
@@ -282,338 +269,230 @@
 }
 
 .linkedin-link {
-  text-decoration: none; /* Remove default link styling */
+  text-decoration: none;
 }
 
-.about{
+.about {
   margin-top: 50px;
   margin-bottom: 100px;
   margin-left: 50px;
-  
-  
-  
 }
+
 .texts2 p {
-  text-align: left; /* Align text to the left */
-  font-size: 1.2rem; /* Adjust font size if needed */
-  line-height: 1.8; /* Improve readability */
-  color: #555; /* Soft dark color for text */
+  text-align: left;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #555;
 }
+
 .texts2 h1 {
-  font-size: 2.5rem; /* Adjust the heading size */
+  font-size: 2.5rem;
   margin-bottom: 10px;
 }
 
-
-
-
-
-
-
-
-
-/* For screens with a max width of 480px (small devices) */
+/* Media Queries */
 @media (max-width: 480px) {
   .App-header {
     flex-direction: column;
     align-items: center;
-    padding: 10px; /* Reduced padding for mobile screens */
+    padding: 10px;
   }
-  .im{
-    
-  
-  
+  .im {
     height: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-
   .texts1 {
-    max-width: 100%; 
-    text-align: center; 
+    max-width: 100%;
+    text-align: center;
     margin-left: 0;
-    margin-bottom: 15px; /* Add some bottom margin */
+    margin-bottom: 15px;
   }
-
   .texts1 h1 {
-    font-size: 30px; /* Adjust font size for mobile */
+    font-size: 30px;
   }
-
   .texts1 i {
-    font-size: 14px; /* Adjust quote font size */
-    margin-left: 0px;
+    font-size: 14px;
+    margin-left: 0;
   }
-
   .App-header img {
-    max-width: 100%; /* Make images responsive */
-    height: auto;
+    max-width: 100%;
     margin-top: 15px;
     margin-left: 100px;
   }
-
-  .notes, .learn, .movie {
+  .notes,
+  .learn,
+  .movie,
+  .bharatiya {
     flex-direction: column;
     align-items: center;
     text-align: center;
-   
   }
-  .bharatiya {
-    display: flex !important;
-    flex-direction: column !important;
-  }
-  
-  .about{
+  .about {
     margin-right: 80px;
-    
   }
-
-  .bharatiya img, .notes img, .learn img, .movie img {
-    width: 90%; /* Ensure images are contained */
+  .bharatiya img,
+  .notes img,
+  .learn img,
+  .movie img {
+    width: 90%;
     height: auto;
   }
-  
-  .icon{
+  .icon {
     margin-right: 120px;
   }
-  .notey{
-    position: absolute;
-    bottom: 68px;
-    left: 84.5px;
-    height: 151px !important; /* Force height to 200px */
-    width: 218px !important;
-  }
-
-  .text, .texts, .texts2 {
-    margin-left: 0; 
+  .text,
+  .texts,
+  .texts2 {
+    margin-left: 0;
     margin-right: 0;
-    padding: 0 15px; 
+    padding: 0 15px;
   }
-
   .more {
     margin-bottom: 30px;
     padding: 15px;
   }
-
-  .github-button, .linkedin-button {
-    font-size: 12px; 
-    padding: 6px 12px; 
-    border-radius: 10px; 
+  .github-button,
+  .linkedin-button {
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 10px;
   }
-
   .footer {
     flex-direction: column;
     text-align: center;
     padding: 15px;
   }
-
-  .linkedin-button, .github-button {
-    margin-right: 0; 
-    margin-bottom: 10px; 
+  .linkedin-button,
+  .github-button {
+    margin-right: 0;
+    margin-bottom: 10px;
   }
 }
 
-/* Small devices (mobile phones) */
 @media (max-width: 600px) {
   .App-header {
     flex-direction: column;
     text-align: center;
   }
-
   .texts1 {
     margin-left: 0;
     margin-bottom: 20px;
   }
-
   .App-header img {
     max-width: 100%;
   }
-
-  .bharatiya, .notes, .learn, .movie {
+  .bharatiya,
+  .notes,
+  .learn,
+  .movie {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-
   .texts {
     margin-left: 0;
   }
-
   .more {
     height: auto;
   }
-
-  .github-button {
+  .github-button,
+  .linkedin-button {
     font-size: 12px;
     padding: 6px 12px;
   }
-
   .footer {
     flex-direction: column;
     text-align: center;
   }
-
-  .linkedin-button, .github-button {
-    font-size: 12px;
-    padding: 6px 12px;
-  }
-
-  .notey {
-    width: 100%;
-  }
-
-  .bharatiya img,
-  .notes img,
-  .learn img,
-  .movie img {
-    width: 100%;
-    height: auto;
-  }
 }
 
-/* Medium devices (tablets) */
 @media (max-width: 768px) {
   .App-header {
     flex-direction: column;
     text-align: center;
   }
   .texts1 i {
-    font-size: 14px; /* Adjust quote font size */
-    margin-left: 0px;
+    font-size: 14px;
+    margin-left: 0;
   }
-
   .texts1 {
     max-width: 80%;
     margin-left: 0;
   }
-
   .App-header img {
-    max-width: 60%; /* Slightly larger images for tablets */
+    max-width: 60%;
   }
-
-  .bharatiya, .notes, .learn, .movie {
+  .bharatiya,
+  .notes,
+  .learn,
+  .movie {
     flex-direction: column;
     align-items: center;
   }
-
   .texts {
     max-width: 80%;
   }
-
-  .github-button {
+  .github-button,
+  .linkedin-button {
     font-size: 14px;
     padding: 8px 16px;
   }
-
   .footer {
     flex-direction: column;
     text-align: center;
   }
-
-  .linkedin-button, .github-button {
-    font-size: 14px;
-    padding: 8px 16px;
-  }
-
-  .notey {
-    width: 80%;
-  }
-
-  .bharatiya img,
-  .notes img,
-  .learn img,
-  .movie img {
-    width: 80%;
-    height: auto;
-  }
 }
 
-/* Medium devices (tablets) */
 @media (max-width: 880px) {
   .App-header {
-    display: flex;
     flex-direction: column;
     text-align: center;
   }
   .texts1 i {
-    font-size: 14px; /* Adjust quote font size */
-    margin-left: 0px;
+    font-size: 14px;
+    margin-left: 0;
   }
-
   .texts1 {
-    width: 100%; /* Full width of the viewport */
-    margin-left: 0; /* No negative margin unless required */
-   margin-bottom: 0;
-    
-}
-
-
-  .App-header img {
-    max-width: 60%; /* Slightly larger images for tablets */
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 0;
   }
-
-  .bharatiya, .notes, .learn, .movie {
-    position: relative;
+  .App-header img {
+    max-width: 60%;
+  }
+  .bharatiya,
+  .notes,
+  .learn,
+  .movie {
     flex-direction: column;
     align-items: center;
   }
-
-  .bharatiya img{
-    height: 400px !important;
-    width: 220px !important;
-    bottom: 40px;
-    left: 365px;
-  }
-
   .texts {
     max-width: 80%;
   }
-
-  .github-button {
+  .github-button,
+  .linkedin-button {
     font-size: 14px;
     padding: 8px 16px;
   }
-
   .footer {
     flex-direction: column;
     text-align: center;
   }
-
-  .linkedin-button, .github-button {
-    font-size: 14px;
-    padding: 8px 16px;
-  }
-
-  .notey {
-    height: 345px !important;
-    width: 500px !important;
-    bottom: 135px;
-    left: 172px;
-  }
-
-  .bharatiya img,
-  .notes img,
-  .learn img,
-  .movie img {
-    width: 80%;
-    height: auto;
-  }
 }
 
-/* Large devices (desktops) */
 @media (min-width: 1200px) {
   .App-header {
     flex-direction: row;
   }
-
   .texts1 {
     max-width: 60%;
   }
-
   .App-header img {
     max-width: 30%;
   }
-
   .bharatiya,
   .notes,
   .learn,
@@ -621,7 +500,6 @@
     flex-direction: row;
     align-items: center;
   }
-
   .texts {
     max-width: 60%;
   }
