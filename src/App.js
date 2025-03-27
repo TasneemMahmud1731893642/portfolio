@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import MatrixIntro from "./matrix";
 import me from "./img/me.png";
 import bharatiyaImage from "./img/bharatiya.png";
