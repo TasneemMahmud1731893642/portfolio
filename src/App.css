@@ -639,9 +639,7 @@
     width: 180px;
     height: 150px;
   }
-  .tech-item:nth-child(n+1) {
-    transform: rotate(calc(30deg * (n - 1))) translateX(170px);
-  }
+  
 }
 
 @media (max-width: 880px) {
